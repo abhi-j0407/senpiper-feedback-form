@@ -1,8 +1,8 @@
 const Form = () => {
   return (
     <div className="form-container">
-      <form className="form-wrapper">
-        <div className="form-column">
+      <form className="form-wrapper" autoComplete="off">
+        <div className="form-column form-left">
           <div className="form-intro">
             <h2>Aromatic Bar</h2>
             <p>
@@ -11,56 +11,58 @@ const Form = () => {
               questionnaire. Thank you.
             </p>
           </div>
-          <div className="field">
-            <input
-              type="text"
-              name="name"
-              id="name"
-              autoComplete="off"
-              required
-            />
-            <label htmlFor="name" className="label-name">
-              <span className="label-text">
-                Name
-                <span className="error-indicator active-error-indicator">
-                  *
+          <div className="fields">
+            <div className="field">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                autoComplete="new-username"
+                required
+              />
+              <label htmlFor="name" className="label-name">
+                <span className="label-text">
+                  Name
+                  <span className="error-indicator active-error-indicator">
+                    *
+                  </span>
                 </span>
-              </span>
-            </label>
-          </div>
+              </label>
+            </div>
 
-          <div className="field">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              autoComplete="off"
-              required
-            />
-            <label htmlFor="email" className="label-name">
-              <span className="label-text">
-                Email <span className="error-indicator">*</span>
-              </span>
-            </label>
-          </div>
+            <div className="field">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autoComplete="new-password"
+                required
+              />
+              <label htmlFor="email" className="label-name">
+                <span className="label-text">
+                  Email <span className="error-indicator">*</span>
+                </span>
+              </label>
+            </div>
 
-          <div className="field">
-            <input
-              type="tel"
-              name="phone"
-              id="phone"
-              autoComplete="off"
-              required
-            />
-            <label htmlFor="phone" className="label-name">
-              <span className="label-text">
-                Phone <span className="error-indicator">*</span>
-              </span>
-            </label>
+            <div className="field">
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                autoComplete="new-password"
+                required
+              />
+              <label htmlFor="phone" className="label-name">
+                <span className="label-text">
+                  Phone <span className="error-indicator">*</span>
+                </span>
+              </label>
+            </div>
           </div>
         </div>
 
-        <div className="form-column">
+        <div className="form-column form-right">
           <div className="radio-field">
             <h4>
               1.Please rate the quality of the service you received from your

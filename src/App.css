@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&family=Noto+Sans&family=Staatliches&display=swap');
 
 /*Default resets*/
 
@@ -81,20 +81,67 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 2fr;
+  background-color: #F7CCAC;
 }
 
 .form-column {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: grid;
   justify-content: center;
   gap: 1rem;
+  height: 37rem;
+}
+
+.form-left {
+  background-color: #3A3845;
+  border-bottom-right-radius: 1.75rem;
+}
+
+.form-intro {
+  /* border: 1px solid lightcoral; */
+  height: fit-content;
+  color: #F7CCAC;
+}
+
+.form-intro  h2 {
+  font-family: 'Staatliches', cursive;
+  font-weight: 400;
+  font-size: 4rem;
+  letter-spacing: 0.45rem;
+  padding: 1rem 0.5rem 1rem 2rem;
+}
+
+.form-intro h2::after {
+  content: "";
+  display: block;
+  padding-top: 0.75rem;
+  width: 10rem;
+  border-bottom: 3px solid #826F66;
+}
+
+.form-intro p {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.2rem;
+  padding: 0.25rem 1rem 0 2rem;
+}
+
+.fields {
+  /* border: 1px solid lightseagreen; */
+  height: fit-content;
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.5rem 2rem 2.5rem 1rem;
+  margin: 0 1.5rem 0 2rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  background-color: rgba(255, 255, 255, .1);  
+  backdrop-filter: blur(5px);
 }
 
 /* Text field styles */
 
 .field {
-  width: 25rem;
   height: 3rem;
   position: relative;
   overflow: hidden;
@@ -103,9 +150,13 @@
 .field input {
   width: 100%;
   height: 100%;
-  padding-top: 1.75rem;
+  padding-top: 1.25rem;
   border: none;
   outline: none;
+  background: none;
+  color: #C69B7B;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.95rem;
 }
 
 .field label {
@@ -115,7 +166,9 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #C69B7B;
+  color: #C69B7B;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .field label::after {
@@ -125,7 +178,7 @@
   bottom: -1px;
   height: 100%;
   width: 100%;
-  border-bottom: 3px solid #5fa8d3;
+  border-bottom: 3px solid #F7CCAC;
   transform: translateX(-100%);
   transition: all 0.3s ease;
 }
@@ -146,11 +199,26 @@
   display: inline;
 }
 
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #C69B7B;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .field input:focus + .label-name .label-text,
 .field input:valid + .label-name .label-text {
   transform: translateY(-130%);
   font-size: 0.9rem;
-  color: #5fa8d3;
+  color: #F7CCAC;
 }
 
 .field input:focus + .label-name::after,
@@ -172,9 +240,8 @@
 }
 
 .form-radio {
-  --size: 1.6rem;
-  min-width: var(--size);
-  height: var(--size);
+  width: 1.6rem;
+  aspect-ratio: 1;
   border-radius: 50%;
   border: 2px solid #444;
   display: flex;
