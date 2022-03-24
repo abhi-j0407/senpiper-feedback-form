@@ -18,7 +18,6 @@
 
 .container {
   display: grid;
-  border: 1px solid black;
   width: 80rem;
   height: 40rem;
   align-content: flex-start;
@@ -27,38 +26,56 @@
 .header {
   display: flex;
   justify-content: space-between;
-  border: 1px solid blue;
   height: 3rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .logo {
-  border: 1px solid palevioletred;
   display: grid;
   place-content: center;
   font-family: 'Merriweather', serif;
   letter-spacing: 1px;
+  background-color: #F7CCAC;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .logo > h1 {
   font-size: 1.75rem;
-  padding: 0.5rem;
+  color: #3A3845;
+  padding: 0.5rem 1rem;
 }
 
 .tabs {
   display: flex;
   height: 100%;
-  
+  border-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .tab {
-  border: 1px solid lightblue;
   width: 10rem;
   display: grid;
   place-content: center;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #C69B7B;
+  color: #3A3845;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.5rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.tab:hover {
+  cursor: pointer;
 }
 
 .active-tab {
-  background-color: aquamarine;
+  background-color: #3A3845;
+  color: #F7CCAC;
+  border-bottom-left-radius: 0rem;
 }
 
 .content {
@@ -79,19 +96,26 @@
   align-items: center;
   grid-template-columns: 1fr 2fr;
   background-color: #F7CCAC;
+  border-bottom-right-radius: 2rem;
 }
 
 .form-column {
   /* border: 1px solid red; */
   display: grid;
   justify-content: center;
-  gap: 1rem;
   height: 37rem;
 }
 
 .form-left {
   background-color: #3A3845;
   border-bottom-right-radius: 1.75rem;
+  gap: 1rem;
+}
+
+.form-right {
+  position: relative;
+  padding-block: 3.5rem;
+  margin-right: 10rem;
 }
 
 .form-intro {
@@ -167,6 +191,7 @@
   font-family: 'Noto Sans', sans-serif;
 }
 
+
 .field label::after {
   content: "";
   position: absolute;
@@ -187,8 +212,8 @@
 }
 
 .error-indicator {
-  color: red;
   display: none;
+  padding-left: 1rem;
 }
 
 .active-error-indicator {
@@ -211,7 +236,8 @@ select:-webkit-autofill:focus {
 }
 
 .field input:focus + .label-name .label-text,
-.field input:valid + .label-name .label-text {
+.field input:valid + .label-name .label-text,
+.field input:not([value = '']) + .label-name .label-text {
   transform: translateY(-130%);
   font-size: 0.9rem;
   color: #F7CCAC;
@@ -222,24 +248,49 @@ select:-webkit-autofill:focus {
   transform: translateX(0);
 }
 
+.field input[type="tel"] + .label-name .label-text::after {
+  content: "(Format: +91-1234567890)";
+  font-size: .8rem;
+  padding-left: 7rem;
+}
+
+.field input[type="tel"]:focus + .label-name .label-text::after,
+.field input[type="tel"]:valid + .label-name .label-text::after {
+  content: "";
+}
+
 /* Radio button styles */
 
 .buttons {
   display: flex;
-  gap: 1rem;
+  gap: 3rem;
   padding-top: 1rem;
 }
 
 .button {
   display: flex;
   gap: .5rem;
+  padding: 0.25rem 0.75rem 0.25rem 0.3rem;
+  border-radius: 1rem;
+  background-color: rgba(198, 155, 123, .3); 
+  backdrop-filter: blur(5px);
+}
+
+.button:hover {
+  background-color: rgba(198, 155, 123, .5); 
+  cursor: pointer;
+}
+
+.button span {
+  font-weight: bold;
+  letter-spacing: 0.1rem;
 }
 
 .form-radio {
   width: 1.6rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 2px solid #444;
+  border: 2px solid #3A3845;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -251,7 +302,7 @@ select:-webkit-autofill:focus {
   width: calc(100% - 0.25rem);
   border-radius: 50%;
   aspect-ratio: 1;
-  background-color: #222;
+  background-color: #3A3845;
 }
 
 .form-radio input {
@@ -265,4 +316,50 @@ select:-webkit-autofill:focus {
 .form-radio .label {
   margin-left: 3rem;
 }
+
+.radio-field {
+  margin-bottom: 1rem;
+  height: max-content;
+  font-family: 'Noto Sans', sans-serif;
+  color: #3A3845;
+}
+
+.radio-field h4 {
+  font-size: 1.1rem;
+  letter-spacing: 0.05rem;
+  padding-bottom: .25rem;
+}
+
+.radio-error {
+  margin-top: 1rem;
+  color: red;
+  letter-spacing: 0.05rem;
+  width: fit-content;
+}
+
+.submit-btn {
+  width: fit-content;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  margin: 1rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  background-color: #3A3845;
+  color: #F7CCAC;
+  outline: none;
+  position: absolute;
+  right: -8rem;
+  bottom: 1rem;
+}
+
+.submit-btn:hover {
+  cursor: pointer;
+}
+
+
+
+
 
