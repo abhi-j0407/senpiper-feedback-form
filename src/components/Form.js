@@ -1,7 +1,48 @@
+import { useEffect, useState } from "react";
+
 const Form = () => {
+
+  const [feedback, setFeedback] = useState(
+    {
+      name: "",
+      email: "",
+      phone: "",
+      hostXp: "",
+      beverageXp: "",
+      cleanXp: "",
+      diningXp: ""
+    });
+  
+  const [feedbacks, setFeedbacks] = useState([])
+
+  //Get Feedbacks collection from local storage, if it exists
+  useEffect(() => {
+    const localFeedbacks = localStorage.getItem("feedbacks")
+    if (localFeedbacks) {
+      setFeedbacks(JSON.parse(localFeedbacks))
+    }
+  },[])
+
+  //On submit, update collection with the new feedback
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setFeedbacks([...feedbacks, feedback])
+  }
+
+  
+  //Update feedback fields on change
+  function handleChange(e) {
+    setFeedback({ ...feedback, [e.target.name]: e.target.value })
+  }
+
+  //On change of collection(i.e. on submit), save collection to local storage
+  useEffect(() => {
+    localStorage.setItem("feedbacks", JSON.stringify(feedbacks))
+  },[feedbacks])
+
   return (
     <div className="form-container">
-      <form className="form-wrapper" autoComplete="off">
+      <form className="form-wrapper" autoComplete="off" onSubmit={(e) => handleSubmit(e)}>
         <div className="form-column form-left">
           <div className="form-intro">
             <h2>Aromatic Bar</h2>
@@ -17,7 +58,9 @@ const Form = () => {
                 type="text"
                 name="name"
                 id="name"
-                autoComplete="new-username"
+                value={feedback.name}
+                onChange={(e) => handleChange(e)}
+                autoComplete="off"
                 required
               />
               <label htmlFor="name" className="label-name">
@@ -35,7 +78,9 @@ const Form = () => {
                 type="email"
                 name="email"
                 id="email"
-                autoComplete="new-password"
+                value={feedback.email}
+                onChange={(e) => handleChange(e)}
+                autoComplete="off"
                 required
               />
               <label htmlFor="email" className="label-name">
@@ -50,7 +95,9 @@ const Form = () => {
                 type="tel"
                 name="phone"
                 id="phone"
-                autoComplete="new-password"
+                value={feedback.phone}
+                onChange={(e) => handleChange(e)}
+                autoComplete="off"
                 required
               />
               <label htmlFor="phone" className="label-name">
@@ -71,7 +118,7 @@ const Form = () => {
             <div className="buttons">
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="host-xp" />
+                  <input type="radio" name="hostXp" value="Excellent" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Excellent</span>
@@ -79,7 +126,7 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="host-xp" />
+                  <input type="radio" name="hostXp" value="Good" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Good</span>
@@ -87,7 +134,7 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="host-xp" />
+                  <input type="radio" name="hostXp" value="Fair" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Fair</span>
@@ -95,7 +142,7 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="host-xp" />
+                  <input type="radio" name="hostXp" value="Bad" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Bad</span>
@@ -108,7 +155,7 @@ const Form = () => {
             <div className="buttons">
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="beverage-xp" />
+                  <input type="radio" name="beverageXp" value="Excellent" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Excellent</span>
@@ -116,7 +163,7 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="beverage-xp" />
+                  <input type="radio" name="beverageXp" value="Good" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Good</span>
@@ -124,7 +171,7 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="beverage-xp" />
+                  <input type="radio" name="beverageXp" value="Fair" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Fair</span>
@@ -132,7 +179,7 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="beverage-xp" />
+                  <input type="radio" name="beverageXp" value="Bad" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Bad</span>
@@ -145,7 +192,7 @@ const Form = () => {
             <div className="buttons">
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="clean-xp" />
+                  <input type="radio" name="cleanXp" value="Excellent" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Excellent</span>
@@ -153,7 +200,7 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="clean-xp" />
+                  <input type="radio" name="cleanXp" value="Good" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Good</span>
@@ -161,7 +208,7 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="clean-xp" />
+                  <input type="radio" name="cleanXp" value="Fair" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Fair</span>
@@ -169,7 +216,7 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="clean-xp" />
+                  <input type="radio" name="cleanXp" value="Bad" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Bad</span>
@@ -182,7 +229,7 @@ const Form = () => {
             <div className="buttons">
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="dining-xp" />
+                  <input type="radio" name="diningXp" value="Excellent" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Excellent</span>
@@ -190,7 +237,7 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="dining-xp" />
+                  <input type="radio" name="diningXp" value="Good" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Good</span>
@@ -198,7 +245,7 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="dining-xp" />
+                  <input type="radio" name="diningXp" value="Fair" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Fair</span>
@@ -206,12 +253,15 @@ const Form = () => {
 
               <div className="button">
                 <label className="form-radio">
-                  <input type="radio" name="dining-xp" />
+                  <input type="radio" name="diningXp" value="Bad" onChange={(e) => handleChange(e)}/>
                   <span className="radio-mark"></span>
                 </label>
                 <span>Bad</span>
               </div>
             </div>
+          </div>
+          <div className="submit-btn">
+            <button type="submit">Submit</button>
           </div>
         </div>
       </form>
