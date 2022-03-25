@@ -1,10 +1,9 @@
 import { useState } from "react";
 import Form from "./Form";
 import Table from "./Table";
-import TableTwo from "./TableTwo";
 
 const Tabs = () => {
-  const [activeTab, setActiveTab] = useState("form");
+  const [activeTab, setActiveTab] = useState("table");
 
   const toggleTab = (tab) => {
     setActiveTab(tab)
@@ -21,7 +20,7 @@ const Tabs = () => {
             <p>Table</p>
           </div>
         </div>
-        <div className="logo">
+        <div className={activeTab === "table" ? "logo logo-table" : "logo"}>
           <h1>F&G</h1>
         </div>
       </div>
@@ -31,7 +30,7 @@ const Tabs = () => {
           <Form />
         </div>
         <div className={activeTab === "table" ? "content active-content" : "content"}>
-          <TableTwo />
+          <Table />
         </div>
       </div>
     </div>
