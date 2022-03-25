@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Form from "./Form";
 import Table from "./Table";
+import TableTwo from "./TableTwo";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("form");
@@ -30,7 +31,7 @@ const Tabs = () => {
           <Form />
         </div>
         <div className={activeTab === "table" ? "content active-content" : "content"}>
-          <Table />
+          <TableTwo />
         </div>
       </div>
     </div>

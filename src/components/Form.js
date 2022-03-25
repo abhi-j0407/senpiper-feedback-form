@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react";
 
 const Form = () => {
-  const [feedback, setFeedback] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    hostXp: "",
-    beverageXp: "",
-    cleanXp: "",
-    diningXp: "",
-  });
+  const [feedback, setFeedback] = useState({});
 
   const [feedbacks, setFeedbacks] = useState([]);
 
