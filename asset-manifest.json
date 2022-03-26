@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/senpiper-feedback-form/static/css/main.a34bd57a.css",
-    "main.js": "/senpiper-feedback-form/static/js/main.fb397491.js",
+    "main.css": "/senpiper-feedback-form/static/css/main.a3cc78bc.css",
+    "main.js": "/senpiper-feedback-form/static/js/main.420bab72.js",
     "index.html": "/senpiper-feedback-form/index.html",
-    "main.a34bd57a.css.map": "/senpiper-feedback-form/static/css/main.a34bd57a.css.map",
-    "main.fb397491.js.map": "/senpiper-feedback-form/static/js/main.fb397491.js.map"
+    "main.a3cc78bc.css.map": "/senpiper-feedback-form/static/css/main.a3cc78bc.css.map",
+    "main.420bab72.js.map": "/senpiper-feedback-form/static/js/main.420bab72.js.map"
   },
   "entrypoints": [
-    "static/css/main.a34bd57a.css",
-    "static/js/main.fb397491.js"
+    "static/css/main.a3cc78bc.css",
+    "static/js/main.420bab72.js"
   ]
 }
