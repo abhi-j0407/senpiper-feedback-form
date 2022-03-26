@@ -3,7 +3,7 @@ import Form from "./Form";
 import Table from "./Table";
 
 const Tabs = () => {
-  const [activeTab, setActiveTab] = useState("table");
+  const [activeTab, setActiveTab] = useState("form");
 
   const toggleTab = (tab) => {
     setActiveTab(tab)

@@ -389,6 +389,7 @@ table {
   width: 100%;
   border-spacing: 0;
   border: 1px solid #C69B7B;
+  /*background-color: #C69B7B;*/
 }
 
 table thead {
@@ -420,6 +421,7 @@ th {
   border: 1px solid #3A3845;
   font-size: 0.95rem;
   padding-block: 0.25rem;
+  margin-right: 0.5rem;
 }
 
 tbody td {
@@ -451,23 +453,89 @@ th, td {
 }
 
 .sort-btn {
-  height: 0.5rem;
+  justify-self: end;
+  height: 0.3rem;
   font-size: 1rem;
-  margin-left: 0.5rem;
-  color: red;
+  color: #3A3845;
+  border-radius: 50%;
+  padding-inline: 0.2rem;
+
 }
 
 tbody::-webkit-scrollbar {
   width: 0.9em;
+  border-radius: 1rem;
 }
 
 tbody::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 1rem;
 }
 
 tbody::-webkit-scrollbar-thumb {
 background-color: #826F66;
 outline: none;
+border-radius: 1rem;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Success message */
+
+.success-show {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background-color: #3A3845;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.success-msg {
+  position: fixed;
+  z-index: 3;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 18rem;
+
+  background-color: #C69B7B;
+  border: 0.5rem solid #3A3845;
+  border-radius: 2rem;
+
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  color: #3A3845;
+  font-size: 1.5rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+
+  padding-top: 0.5rem;
+}
+
+.success-hide {
+  display: none;
+}
+
+.continue-btn {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  margin: 1rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  background-color: #3A3845;
+  color: #F7CCAC;
+  outline: none;
 }
 
 

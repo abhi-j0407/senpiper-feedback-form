@@ -9,6 +9,8 @@ const Form = () => {
 
   const [isSubmit, setIsSubmit] = useState(false);
 
+  const [showSuccess, setShowSuccess] = useState(false);
+
   //Get Feedbacks collection from local storage, if it exists
   useEffect(() => {
     const localFeedbacks = localStorage.getItem("feedbacks");
@@ -31,11 +33,18 @@ const Form = () => {
     // console.log(errors);
     if (Object.keys(errors).length === 0 && isSubmit) {
       setFeedbacks([...feedbacks, feedback]);
-      var form = document.getElementById("main-form");
-      form.reset();
+      // var form = document.getElementById("main-form");
+      // form.reset();
       setFeedback({})
+      setShowSuccess(true)
     }
   }, [errors]);
+
+  const handleContinue = () => {
+    var form = document.getElementById("main-form");
+    form.reset();
+    setShowSuccess(false)
+  }
 
   //Update feedback fields on change
   function handleChange(e) {
@@ -73,6 +82,12 @@ const Form = () => {
 
   return (
     <div className="form-container">
+      <div className={showSuccess ? "success-show" : "success-hide"}>
+        <div className="success-msg" >
+          <p>Feedback submitted successfully !</p>
+          <button className="continue-btn" onClick={handleContinue}>Continue</button>
+        </div>
+      </div>
       <form
         className="form-wrapper"
         id="main-form"
