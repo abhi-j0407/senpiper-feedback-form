@@ -6,17 +6,23 @@ const Tabs = () => {
   const [activeTab, setActiveTab] = useState("form");
 
   const toggleTab = (tab) => {
-    setActiveTab(tab)
+    setActiveTab(tab);
   };
 
   return (
     <div className="container">
       <div className="header">
         <div className="tabs">
-          <div className={activeTab === "form" ? "tab active-tab" : "tab"} onClick={() => toggleTab("form")}>
+          <div
+            className={activeTab === "form" ? "tab active-tab" : "tab"}
+            onClick={() => toggleTab("form")}
+          >
             <p>Form</p>
           </div>
-          <div className={activeTab === "table" ? "tab active-tab" : "tab"} onClick={() => toggleTab("table")}>
+          <div
+            className={activeTab === "table" ? "tab active-tab" : "tab"}
+            onClick={() => toggleTab("table")}
+          >
             <p>Table</p>
           </div>
         </div>
@@ -26,10 +32,18 @@ const Tabs = () => {
       </div>
 
       <div className="tab-contents">
-        <div className={activeTab === "form" ? "content active-content" : "content"}>
+        <div
+          className={
+            activeTab === "form" ? "content active-content" : "content"
+          }
+        >
           <Form />
         </div>
-        <div className={activeTab === "table" ? "content active-content" : "content"}>
+        <div
+          className={
+            activeTab === "table" ? "content active-content" : "content"
+          }
+        >
           <Table />
         </div>
       </div>

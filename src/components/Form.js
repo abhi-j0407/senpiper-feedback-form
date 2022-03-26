@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Form = () => {
   const [feedback, setFeedback] = useState({});
@@ -73,14 +74,26 @@ const Form = () => {
 
   return (
     <div className="form-container">
-      <div className={showSuccess ? "success-show" : "success-hide"}>
-        <div className="success-msg">
+      <AnimatePresence exitBeforeEnter>
+        {showSuccess && (
+          <motion.div className="success-show"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      transition={{duration:0.25}}>
+        {/* {showSuccess ? "success-show" : "success-hide"} */}
+        <motion.div className="success-msg"
+          initial={{ opacity: 0, y:'-10rem', x:-125 }}
+          animate={{ opacity: 1, y: 0 }}
+        transition={{delay:0.25, duration:0.5}}>
           <p>Thank you for completing the information.</p>
           <button className="continue-btn" onClick={handleContinue}>
             Continue
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
+      )}
+      </AnimatePresence>
+      
 
       <form
         className="form-wrapper"
