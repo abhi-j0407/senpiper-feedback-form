@@ -2,13 +2,9 @@ import { useEffect, useState } from "react";
 
 const Form = () => {
   const [feedback, setFeedback] = useState({});
-
   const [feedbacks, setFeedbacks] = useState([]);
-
   const [errors, setErrors] = useState({});
-
   const [isSubmit, setIsSubmit] = useState(false);
-
   const [showSuccess, setShowSuccess] = useState(false);
 
   //Get Feedbacks collection from local storage, if it exists
@@ -24,22 +20,17 @@ const Form = () => {
     e.preventDefault();
     setErrors(validate(feedback));
     setIsSubmit(true);
-    // if (isSubmit) {
-    //   setFeedbacks([...feedbacks, feedback])
-    // }
   };
 
   useEffect(() => {
-    // console.log(errors);
     if (Object.keys(errors).length === 0 && isSubmit) {
       setFeedbacks([...feedbacks, feedback]);
-      // var form = document.getElementById("main-form");
-      // form.reset();
       setFeedback({})
       setShowSuccess(true)
     }
   }, [errors]);
 
+  //Show success message and reset form
   const handleContinue = () => {
     var form = document.getElementById("main-form");
     form.reset();
@@ -88,6 +79,7 @@ const Form = () => {
           <button className="continue-btn" onClick={handleContinue}>Continue</button>
         </div>
       </div>
+      
       <form
         className="form-wrapper"
         id="main-form"

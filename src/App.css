@@ -21,6 +21,8 @@
   width: 80rem;
   height: 40rem;
   align-content: flex-start;
+  box-shadow: rgb(38, 57, 77) 0px 25px 30px -10px;
+  border-bottom-right-radius: 2rem;
 }
 
 .header {
@@ -105,7 +107,6 @@
 }
 
 .form-column {
-  /* border: 1px solid red; */
   display: grid;
   justify-content: center;
   height: 37rem;
@@ -124,7 +125,6 @@
 }
 
 .form-intro {
-  /* border: 1px solid lightcoral; */
   height: fit-content;
   color: #F7CCAC;
 }
@@ -152,7 +152,6 @@
 }
 
 .fields {
-  /* border: 1px solid lightseagreen; */
   height: fit-content;
   display: grid;
   gap: 0.75rem;
