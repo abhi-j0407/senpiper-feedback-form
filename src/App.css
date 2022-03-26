@@ -511,11 +511,11 @@ border-radius: 1rem;
   align-items: center;
 
   color: #3A3845;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-family: 'Noto Sans', sans-serif;
   font-weight: bold;
 
-  padding-top: 0.5rem;
+  padding: 1rem 0.5rem 0;
 }
 
 .success-hide {

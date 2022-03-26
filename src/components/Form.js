@@ -25,8 +25,8 @@ const Form = () => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmit) {
       setFeedbacks([...feedbacks, feedback]);
-      setFeedback({})
-      setShowSuccess(true)
+      setFeedback({});
+      setShowSuccess(true);
     }
   }, [errors]);
 
@@ -34,8 +34,8 @@ const Form = () => {
   const handleContinue = () => {
     var form = document.getElementById("main-form");
     form.reset();
-    setShowSuccess(false)
-  }
+    setShowSuccess(false);
+  };
 
   //Update feedback fields on change
   function handleChange(e) {
@@ -74,12 +74,14 @@ const Form = () => {
   return (
     <div className="form-container">
       <div className={showSuccess ? "success-show" : "success-hide"}>
-        <div className="success-msg" >
-          <p>Feedback submitted successfully !</p>
-          <button className="continue-btn" onClick={handleContinue}>Continue</button>
+        <div className="success-msg">
+          <p>Thank you for completing the information.</p>
+          <button className="continue-btn" onClick={handleContinue}>
+            Continue
+          </button>
         </div>
       </div>
-      
+
       <form
         className="form-wrapper"
         id="main-form"
@@ -329,7 +331,7 @@ const Form = () => {
                 <span>Bad</span>
               </div>
             </div>
-            
+
             <div className="radio-error">{errors.cleanXp}</div>
           </div>
 
