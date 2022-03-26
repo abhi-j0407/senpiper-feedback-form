@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/senpiper-feedback-form/static/css/main.c73aacf7.css",
+    "main.js": "/senpiper-feedback-form/static/js/main.53fc6811.js",
+    "index.html": "/senpiper-feedback-form/index.html",
+    "main.c73aacf7.css.map": "/senpiper-feedback-form/static/css/main.c73aacf7.css.map",
+    "main.53fc6811.js.map": "/senpiper-feedback-form/static/js/main.53fc6811.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c73aacf7.css",
+    "static/js/main.53fc6811.js"
+  ]
+}
