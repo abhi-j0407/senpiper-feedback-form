@@ -9,6 +9,11 @@
 - A feedback form for a restaurant/bar, with input validations, success message, local storage as database to store responses.
 - A table retrieving data from local storage, displaying it in a table with abilities to sort and filter at each column.
 
+# Project Live Link
+
+- This project has been deployed to Github pages
+- Link (https://abhi-j0407.github.io/senpiper-feedback-form) 
+
 # Instructions
 
 - Clone repository from  'https://github.com/abhi-j0407/senpiper-feedback-form.git'
